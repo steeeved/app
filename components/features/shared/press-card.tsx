@@ -39,15 +39,31 @@ export function PressRow({
 
       {/* Tablet: 2-column grid */}
       <div className="hidden sm:grid lg:hidden grid-cols-2 gap-4 sm:gap-6">
-        {outlets.map((outlet) => (
-          <PressCard key={outlet.name} {...outlet} />
+        {outlets.map((outlet, i) => (
+          <div key={outlet.name}>
+            <PressCard {...outlet} />
+            <div
+              className="h-[20px] w-full"
+              style={{
+                background: `linear-gradient(to right, ${dividerColors[i]?.from ?? "#ccc"}, ${dividerColors[i]?.to ?? "#ccc"})`,
+              }}
+            />
+          </div>
         ))}
       </div>
 
       {/* Mobile: single column */}
-      <div className="grid sm:hidden grid-cols-1 gap-6">
-        {outlets.map((outlet) => (
-          <PressCard key={outlet.name} {...outlet} />
+      <div className="grid sm:hidden grid-cols-1 max-w-[calc(100vw-50px)] w-full mx-auto">
+        {outlets.map((outlet, i) => (
+          <div key={outlet.name}>
+            <PressCard {...outlet} />
+            <div
+              className="h-[20px] w-full"
+              style={{
+                background: `linear-gradient(to right, ${dividerColors[i]?.from ?? "#ccc"}, ${dividerColors[i]?.to ?? "#ccc"})`,
+              }}
+            />
+          </div>
         ))}
       </div>
     </>
@@ -67,7 +83,7 @@ export function PressCard({
     <div className="w-full lg:w-[370px] bg-white flex flex-col">
       {/* Image Section */}
       <div
-        className="h-32 sm:h-40 lg:h-[225px] flex items-center justify-center px-8 relative overflow-hidden"
+        className="h-[214px] sm:h-40 lg:h-[225px] flex items-center justify-center px-8 relative overflow-hidden border-b border-neutral-200 sm:border-b-0"
         style={{ backgroundColor: bgColor }}
       >
         <Image
@@ -86,12 +102,12 @@ export function PressCard({
       </div>
 
       {/* Info Section */}
-      <div className="px-[16px] py-[22px] border-t border-[#F3F4F6] flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-2 md:gap-4">
+      <div className="px-[16px] py-[22px] border-t border-gray-100 flex flex-row items-center gap-2 md:gap-4">
         <Link
           href={url}
           target="_blank"
           rel="noopener noreferrer"
-          className="border-[1px] border-solid h-[32px] border-[#A7C6ED] bg-[rgba(167,198,237,0.35)] flex items-center gap-1 sm:gap-2 p-[10px] tracking-[-0.064px] leading-[28px] text-slate-600 font-dm-sans text-[16px] font-[500] flex-shrink-0"
+          className="border-[1px] border-solid h-[32px] border-dashboard-accent-blue-light bg-dashboard-accent-blue-light/35 flex items-center gap-1 sm:gap-2 p-[10px] tracking-[-0.064px] leading-[28px] text-slate-600 font-dm-sans text-[16px] font-[500] flex-shrink-0"
         >
           <Image
             src="/svg-assets/landingpage/spout-book.svg"
@@ -117,7 +133,7 @@ export function PressCard({
             />
           </svg>
         </Link>
-        <span className="text-[16px] font-[500] leading-[28px] tracking-[-0.064px] font-dm-sans text-[#525252] sm:ml-auto">
+        <span className="text-[14px] sm:text-[16px] font-[500] leading-[28px] tracking-[-0.056px] sm:tracking-[-0.064px] font-dm-sans text-spout-text-muted-dark ml-auto">
           {date}
         </span>
       </div>

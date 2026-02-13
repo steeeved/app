@@ -39,26 +39,29 @@ export function FAQSection() {
     <section className="w-full py-4 sm:py-6 lg:py-18">
       {/* Section content */}
       <div className="w-full max-w-294.5 mx-auto px-4 sm:px-6 lg:px-9 pb-8 sm:pb-0">
-        <div className="flex gap-[36px]">
+        <div className="flex flex-col lg:flex-row gap-4 lg:gap-[36px]">
           {/* Left Column - Header */}
-          <div className="basis-[448px]">
-            <div className="text-[#004040] font-['DM_Sans'] text-[14px] not-italic font-medium leading-normal uppercase">
+          <div className="text-center lg:text-left lg:basis-[448px]">
+            <div className="hidden lg:block text-spout-deep-teal font-['DM_Sans'] text-[14px] not-italic font-medium leading-normal uppercase">
               [ FAQ ]
             </div>
-            <h2 className="text-[#004040] font-['PT_Serif'] text-[36px] not-italic font-normal leading-[56px] tracking-[0.144px]">
+            <h2 className="text-spout-deep-teal font-['PT_Serif'] text-[30px] lg:text-[36px] not-italic font-normal leading-[40px] lg:leading-[56px] tracking-[0.12px] lg:tracking-[0.144px]">
               Frequently asked
               <br />
               questions
             </h2>
-            <p className="pt-4 text-[#757679] font-['DM_Sans'] text-[16px] not-italic font-normal leading-[28px] tracking-[-0.064px]">
+            <p className="pt-4 text-spout-text-description font-['DM_Sans'] text-[14px] lg:text-[16px] not-italic font-normal leading-[24px] lg:leading-[28px] tracking-[-0.064px]">
               Everything you need to know about Spout and
-              <br />
+              {" "}
+              <span className="hidden lg:inline">
+                <br />
+              </span>
               how we&apos;re changing decentralized investing.
             </p>
           </div>
 
           {/* Right Column - FAQ Items */}
-          <div className="basis-[610px]">
+          <div className=" lg:basis-[610px] max-w-[calc(100vw-48px)] w-full mx-auto">
             <Accordion
               type="single"
               collapsible
@@ -69,31 +72,31 @@ export function FAQSection() {
                 <AccordionItem
                   key={index}
                   value={`item-${index}`}
-                  className="mt-[-10px] border-[1.249px] border-solid border-[#E5E5E5] bg-[#FFF] text-[#000] text-[16px] not-italic font-medium leading-[28px] tracking-[-0.064px] px-5 p-2 sm:px-8 sm:py-5 rounded-sm font-dm-sans text-xl"
+                  className="mt-0 lg:mt-[-10px] border-0 border-b border-neutral-200 lg:border-[1.249px] lg:border-solid bg-[#FFF] text-[#000] text-[14px] lg:text-[16px] not-italic font-medium leading-[20px] lg:leading-[28px] tracking-[-0.056px] lg:tracking-[-0.064px] px-3 py-2 lg:px-8 lg:py-5 rounded-none lg:rounded-sm font-dm-sans"
                 >
-                  <AccordionTrigger className="cursor-pointer text-start py-0 px-0 gap-8 items-start font-['DM_Sans'] text-[16px] not-italic font-medium leading-[28px] tracking-[-0.064px]">
+                  <AccordionTrigger className="cursor-pointer text-start py-0 px-0 gap-4 lg:gap-8 items-start font-['DM_Sans'] text-[14px] lg:text-[16px] not-italic font-medium leading-[20px] lg:leading-[28px] tracking-[-0.056px] lg:tracking-[-0.064px]">
                     {item.question}
                   </AccordionTrigger>
-                  <AccordionContent className="mt-5 text-[#525252]">
+                  <AccordionContent className="mt-5 text-spout-text-muted-dark">
                     {item.answer}
                   </AccordionContent>
                 </AccordionItem>
               ))}
 
-              <div className="mt-4 sm:mt-6 text-end">
+              <div className="w-full  flex align-center justify-center mt-4 sm:mt-6 lg:text-end">
                 <Link
                   href="/faq"
                   scroll={true}
-                  className="h-[36px] w-[116px] items-center justify-center group border rounded-sm border-[#E8E8E8] bg-white p-[10px] inline-flex text-sm sm:text-base font-noto-sans font-medium text-[#000] transition-colors gap-2"
+                  className="w-fit h-9 self-center flex lg:inline-flex items-center justify-center group rounded-[4px] lg:rounded-sm bg-spout-deep-teal lg:bg-white border-0 lg:border lg:border-neutral-200 px-4 py-3 lg:p-[10px] lg:h-[36px] lg:w-[116px] text-[16px] lg:text-base font-['DM_Sans'] lg:font-noto-sans font-medium text-white lg:text-[#000] transition-colors gap-2"
                 >
-                  View All
+                  View all
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="24"
                     height="24"
                     viewBox="0 0 24 24"
                     fill="none"
-                    className="transition-transform duration-300 ease-out group-hover:translate-x-1"
+                    className="hidden lg:block transition-transform duration-300 ease-out group-hover:translate-x-1"
                   >
                     <path
                       d="M14.4301 5.93018L20.5001 12.0002L14.4301 18.0702"

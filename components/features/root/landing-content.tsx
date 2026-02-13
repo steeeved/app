@@ -23,7 +23,7 @@ export function LandingContent() {
         </div>
 
         {/* Partner Ticker */}
-        <div className="relative z-10 w-screen border-t-2 border-b-2 border-[#F3F4F6] bg-white">
+        <div className="relative z-10 w-screen border-t-2 border-b-2 border-gray-100 bg-white">
           <div className="max-w-[1178px] mx-auto hidden md:block optimized">
             <PartnerTicker />
           </div>
@@ -33,18 +33,23 @@ export function LandingContent() {
         </div>
 
         <div className="relative">
-          <div className="hidden md:block absolute inset-0 pointer-events-none z-20 max-w-[1178px] mx-auto">
+          <div className="absolute inset-0 pointer-events-none z-20 max-w-[calc(100vw-48px)] sm:max-w-[1178px] mx-auto">
             {/* Left vertical line */}
-            <div className="absolute left-0 top-0 bottom-0 w-[2px] bg-[#F3F4F6] optimized"></div>
+            <div className="absolute left-0 top-0 bottom-0 w-[2px] bg-gray-100 optimized"></div>
             {/* Right vertical line */}
-            <div className="absolute right-0 top-0 bottom-0 w-[2px] bg-[#F3F4F6] optimized"></div>
+            <div className="absolute right-0 top-0 bottom-0 w-[2px] bg-gray-100 optimized"></div>
           </div>
+
+          
 
           {/* How Spout Works Section */}
           <div className="relative z-10 w-full">
             <HowSpoutWorks />
           </div>
-          <div className="h-[100px] w-screen bg-transparent border-b-2 border-[#F3F4F6] "></div>
+          <div className="relative h-15 sm:h-25 w-full sm:max-w-[1178px] sm:mx-auto bg-transparent sm:border-b-2 sm:border-t-0 border-gray-100">
+            <div className="sm:hidden absolute top-0 left-1/2 -translate-x-1/2 w-[100vw] h-[2px] bg-gray-100" />
+            <div className="sm:hidden absolute bottom-0 left-1/2 -translate-x-1/2 w-[100vw] h-[2px] bg-gray-100" />
+          </div>
 
           {/* Proof of Reserve Section */}
           <div className="relative z-10 w-full">
@@ -55,7 +60,10 @@ export function LandingContent() {
           <div className="relative z-10 w-full">
             <UnlockingFinance />
           </div>
-          <div className="h-[100px] w-screen bg-transparent border-t-2 border-b-2 border-[#F3F4F6] "></div>
+          <div className="relative h-15 sm:h-25 w-full sm:max-w-[1178px] sm:mx-auto bg-transparent sm:border-t-2 sm:border-b-2 border-gray-100">
+            <div className="sm:hidden absolute top-0 left-1/2 -translate-x-1/2 w-[100vw] h-[2px] bg-gray-100" />
+            <div className="sm:hidden absolute bottom-0 left-1/2 -translate-x-1/2 w-[100vw] h-[2px] bg-gray-100" />
+          </div>
 
           {/* Investment Different Section */}
           <div className="relative z-10 w-full">
@@ -73,11 +81,16 @@ export function LandingContent() {
           </div>
 
           {/* CTA Section */}
-          <div className="relative z-10 w-full">
+          <div className="relative z-10 max-w-[calc(100vw-72px)] sm:max-w-full w-full mx-auto">
             <CTASection />
           </div>
-          <div className="h-[100px] w-screen bg-transparent border-t-2 border-b-2 border-[#F3F4F6] "></div>
+          <div className="relative h-15 sm:h-25 w-full sm:max-w-[1178px] sm:mx-auto bg-transparent sm:border-t-2 border-gray-100">
+            <div className="sm:hidden absolute top-0 left-1/2 -translate-x-1/2 w-[100vw] h-[2px] bg-gray-100" />
+            <div className="sm:hidden absolute bottom-0 left-1/2 -translate-x-1/2 w-[100vw] h-[2px] bg-gray-100" />
+          </div>
         </div>
+        {/* Full-width line above footer */}
+        <div className="hidden sm:block w-full h-[2px] bg-gray-100" />
       </div>
     </SmoothScroll>
   );

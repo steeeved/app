@@ -34,15 +34,15 @@ const dividerColors = [
 
 export function InTheNews() {
   return (
-    <section className="w-full">
+    <section className="w-full border-t-2 border-gray-100 sm:border-none">
       {/* Section content */}
       <div className="w-full px-4 sm:px-6 md:px-8 lg:px-0 pb-8">
         {/* Header */}
         <div className="text-center ">
-          <h2 className="text-[#004040] text-center font-['PT_Serif'] text-[48px] not-italic font-normal leading-[56px] tracking-[0.192px]">
+          <h2 className="max-w-79 w-full mx-auto sm:max-w-full text-spout-deep-teal text-center font-['PT_Serif'] text-3xl sm:text-5xl not-italic font-normal leading-[56px] tracking-[0.192px]">
             In the <span className="">Press</span>
           </h2>
-          <p className="text-[#757679] pt-3 text-center font-['DM_Sans'] text-[16smriunge@gmail.compx] not-italic font-normal leading-[28px] tracking-[-0.064px]">
+          <p className="max-w-79 w-full mx-auto sm:max-w-full text-spout-text-description pt-3 text-center font-['DM_Sans'] text-[16smriunge@gmail.compx] not-italic font-normal leading-[28px] tracking-[-0.064px]">
             Financial media outlets are highlighting our approach to secure,
             regulated
             <br />
@@ -50,49 +50,24 @@ export function InTheNews() {
           </p>
         </div>
 
-        <div className="w-screen bg-transparent border-t border-b mt-[70px] border-[#F3F4F6] "></div>
+        <div className="w-full max-w-[1178px] mx-auto bg-transparent border-t border-b mt-[70px] border-gray-100"></div>
 
         {/* News Cards Grid */}
-        <div className="mb-8 sm:mb-12 lg:mb-0 max-w-[1178px] mx-auto pr-[2px]">
+        <div className="sm:mb-12 lg:mb-0 max-w-[1178px] mx-auto pr-[2px]">
           <PressRow outlets={newsItems} dividerColors={dividerColors} />
         </div>
-        <div className="w-screen bg-transparent border-t border-b border-[#F3F4F6] "></div>
-        <div className="mt-4 sm:mt-7 text-end max-w-[1178px] mx-auto pe-[22px]">
+        <div className="w-full max-w-[1178px] mx-auto bg-transparent border-t border-b border-gray-100"></div>
+        <div className="mt-4 sm:mt-7 text-center sm:text-end max-w-294.5 mx-auto sm:pe-[22px]">
           <Link
             href="/press"
             scroll={true}
-            className="h-[36px] w-[116px] items-center justify-center group border rounded-sm border-[#E8E8E8] bg-white p-[10px] inline-flex text-sm sm:text-base font-noto-sans font-medium text-[#000] transition-colors gap-2"
+            className="w-fit h-9 inline-flex items-center justify-center px-4 py-3 bg-spout-deep-teal rounded-[4px] text-white font-dm-sans text-[16px] font-medium hover:bg-spout-deep-teal-hover transition-colors"
           >
-            View All
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              className="transition-transform duration-300 ease-out group-hover:translate-x-1"
-            >
-              <path
-                d="M14.4301 5.93018L20.5001 12.0002L14.4301 18.0702"
-                stroke="#292D32"
-                strokeWidth="1.5"
-                strokeMiterlimit="10"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-              <path
-                d="M3.5 12H20.33"
-                stroke="#292D32"
-                strokeWidth="1.5"
-                strokeMiterlimit="10"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
+            View all
           </Link>
         </div>
       </div>
-      <div className="w-screen bg-transparent border-t border-b border-[#F3F4F6] "></div>
+      <div className="w-full max-w-[1178px] mx-auto bg-transparent border-t border-b border-gray-100"></div>
     </section>
   );
 }

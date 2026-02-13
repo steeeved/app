@@ -1,7 +1,7 @@
 "use client";
 
-import { CTASection } from "../root";
-import { PressCard, PressRow, type MediaOutlet } from "../shared/press-card";
+import { CTASection } from "@/components/features/root";
+import { PressCard, PressRow, type MediaOutlet } from "@/components/features/shared/press-card";
 import morning_star from "@/assets/images/morningstar.png";
 import bz from "@/assets/images/bz.png";
 
@@ -130,7 +130,7 @@ export default function PressPage() {
             {/* Content — left-aligned on mobile, centered on desktop */}
             <div className="relative z-10 mx-auto px-6 sm:px-0 text-left sm:text-center flex flex-col justify-center items-start sm:items-center py-16 sm:py-20 lg:py-24">
               <div className="w-fit px-2.5 py-1 rounded-[3px] bg-spout-accent/35 mb-5">
-                <span className="text-base font-medium text-slate-600 font-dm-sans">
+                <span className="text-base font-medium text-[#3d5678] font-dm-sans">
                   Press &amp; Media
                 </span>
               </div>
@@ -139,7 +139,7 @@ export default function PressPage() {
                 In the Press
               </h1>
 
-              <p className="text-base text-spout-text-description max-w-[330px] sm:max-w-[646px] sm:mx-auto font-dm-sans leading-6 sm:leading-7 tracking-[0.064px]">
+              <p className="text-base text-[#757679] max-w-[330px] sm:max-w-[646px] sm:mx-auto font-dm-sans leading-6 sm:leading-7 tracking-[0.064px]">
                 Financial media outlets are highlighting our approach to secure,
                 regulated investing with real returns
               </p>
@@ -151,8 +151,8 @@ export default function PressPage() {
             {/* ── Bordered container ── */}
             <div className="max-w-[calc(100vw-48px)] relative sm:max-w-[1176px] mx-auto sm:px-6 lg:px-0 lg:border-x-2 lg:border-gray-100">
               {/* Mobile vertical border lines */}
-              <div className="absolute left-0 top-0 bottom-0 w-[2px] bg-gray-100 block sm:hidden z-100" />
-              <div className="absolute right-0 top-0 bottom-0 w-[2px] bg-gray-100 block sm:hidden z-100" />
+              <div className="absolute left-0 top-0 bottom-0 w-[2px] bg-[#F3F4F6] block sm:hidden z-100" />
+              <div className="absolute right-0 top-0 bottom-0 w-[2px] bg-[#F3F4F6] block sm:hidden z-100" />
 
               {/* Full-width horizontal line at top */}
               <div className="relative">
@@ -179,7 +179,7 @@ export default function PressPage() {
                       }}
                     />
                     {/* Edge-to-edge line after gradient */}
-                    <div className="h-[2px] bg-gray-100 -mx-[24px] w-[calc(100%+48px)]" />
+                    <div className="h-[2px] bg-[#F3F4F6] -mx-[24px] w-[calc(100%+48px)]" />
                   </div>
                 ))}
               </div>
@@ -212,7 +212,7 @@ export default function PressPage() {
               </div>
 
               {/* Gap before gradient bar */}
-              <div className="h-15 sm:h-12 lg:h-[60px]" />
+              <div className="h-8 sm:h-12 lg:h-[60px]" />
 
               {/* Full-width horizontal line before gradient bar */}
               <div className="relative">
@@ -233,11 +233,11 @@ export default function PressPage() {
             {/* ── Lower bordered container: Newsletter ── */}
             <div className="max-w-[calc(100vw-48px)] relative sm:max-w-[1176px] mx-auto sm:px-6 lg:px-0 lg:border-x-2 lg:border-gray-100">
               {/* Mobile vertical border lines */}
-              <div className="absolute left-0 top-0 bottom-0 w-[2px] bg-gray-100 block sm:hidden z-100" />
-              <div className="absolute right-0 top-0 bottom-0 w-[2px] bg-gray-100 block sm:hidden z-100" />
+              <div className="absolute left-0 top-0 bottom-0 w-[2px] bg-[#F3F4F6] block sm:hidden z-100" />
+              <div className="absolute right-0 top-0 bottom-0 w-[2px] bg-[#F3F4F6] block sm:hidden z-100" />
 
               {/* Gap after gradient bar */}
-              <div className="h-15 sm:h-16 lg:h-[100px]" />
+              <div className="h-12 sm:h-16 lg:h-[100px]" />
 
               {/* Full-width horizontal line above CTA */}
               <div className="relative">
@@ -253,13 +253,13 @@ export default function PressPage() {
               </div>
 
               {/* Gap before footer */}
-              <div className="h-15 sm:h-16 lg:h-[100px]" />
+              <div className="h-12 sm:h-16 lg:h-[100px]" />
             </div>
           </div>
         </main>
       </div>
       {/* Bottom horizontal line above footer */}
-      <div className="w-full border-t-2 border-gray-100" />
+      <div className="w-full border-t-2 border-[#F3F4F6]" />
     </div>
   );
 }

@@ -85,13 +85,17 @@ export const Footer: React.FC<FooterProps> = ({
   return (
     <footer
       ref={footerRef}
-      className="bg-white text-gray-900 relative flex flex-col w-full h-full justify-between select-none z-0"
+      className="max-w-[calc(100vw-48px)] mx-auto bg-white text-gray-900 relative flex flex-col w-full h-full justify-between select-none z-0"
     >
-      <div className="border-b-2 border-[#F3F4F6]  flex flex-col lg:flex-row justify-between w-full gap-12  relative z-10">
+      {/* Right vertical line */}
+      <div className="absolute left-0 top-0 bottom-0 w-[2px] bg-gray-100 optimized block sm:hidden"></div>
+      {/* Right vertical line */}
+      <div className="absolute right-0 top-0 bottom-0 w-[2px] bg-gray-100 optimized block sm:hidden"></div>
+      <div className="sm:border-b-2 border-gray-100  flex flex-col lg:flex-row justify-between w-full gap-12  relative z-10">
         {/* Mobile Layout - Logo and copyright at top, links below */}
-        <div className="lg:hidden space-y-8">
+        <div className="relative lg:hidden">
           {/* Logo and copyright */}
-          <div className="space-y-4">
+          <div className="px-10 pt-8 pb-6">
             <div className="flex items-center mb-4">
               <Image
                 src="/Spout_complete.png"
@@ -101,24 +105,26 @@ export const Footer: React.FC<FooterProps> = ({
                 className="h-10 w-auto"
               />
             </div>
-            <p className="text-sm text-gray-600">{copyrightText}</p>
+            <p className="font-['DM_Sans'] text-[12px] font-normal leading-[10.65px] tracking-[-0.114px] text-black">
+              {copyrightText}
+            </p>
           </div>
 
-          {/* Links in three separate divs */}
-          <div className="space-y-6">
-            {/* Platform and Company on left */}
-            <div className="flex justify-between">
+          {/* Links - three columns in a row */}
+          <div className="h-px w-screen left-1/2 -translate-x-1/2 bg-transparent border-t-2 border-gray-100 absolute"></div>
+          <div className="sm:border-t sm:border-gray-100 px-10 pt-6 pb-8">
+            <div className="flex gap-[40px]">
               {/* Platform Column */}
-              <div className="flex-1">
-                <h4 className="font-semibold text-gray-400 mb-3 text-sm uppercase tracking-wider">
+              <div>
+                <h4 className="text-spout-footer-heading font-['DM_Sans'] text-[14px] font-medium leading-[22.4px] tracking-[-0.24px] mb-4 uppercase">
                   PLATFORM
                 </h4>
-                <ul className="space-y-2">
+                <ul className="flex flex-col gap-3">
                   {leftLinks.map((link, index) => (
                     <li key={index}>
                       <Link
                         href={link.href}
-                        className="text-gray-900 hover:text-[#004040] transition-colors duration-200 text-sm"
+                        className="text-black font-['DM_Sans'] text-[14px] font-normal leading-[22.4px] tracking-[-0.24px] hover:text-spout-deep-teal transition-colors duration-200"
                       >
                         {link.label}
                       </Link>
@@ -128,16 +134,16 @@ export const Footer: React.FC<FooterProps> = ({
               </div>
 
               {/* Company Column */}
-              <div className="flex-1">
-                <h4 className="font-semibold text-gray-400 mb-3 text-sm uppercase tracking-wider">
+              <div>
+                <h4 className="text-spout-footer-heading font-['DM_Sans'] text-[14px] font-medium leading-[22.4px] tracking-[-0.24px] mb-4 uppercase">
                   COMPANY
                 </h4>
-                <ul className="space-y-2">
+                <ul className="flex flex-col gap-3">
                   {rightLinks.map((link, index) => (
                     <li key={index}>
                       <Link
                         href={link.href}
-                        className="text-gray-900 hover:text-[#004040] transition-colors duration-200 text-sm"
+                        className="text-black font-['DM_Sans'] text-[14px] font-normal leading-[22.4px] tracking-[-0.24px] hover:text-spout-deep-teal transition-colors duration-200"
                       >
                         {link.label}
                       </Link>
@@ -145,45 +151,45 @@ export const Footer: React.FC<FooterProps> = ({
                   ))}
                 </ul>
               </div>
-            </div>
 
-            {/* Social on right */}
-            <div>
-              <h4 className="font-semibold text-gray-400 mb-3 text-sm uppercase tracking-wider">
-                SOCIAL
-              </h4>
-              <ul className="space-y-2">
-                <li>
-                  <a
-                    href="https://www.linkedin.com/company/spoutfinance/posts/?feedView=all"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-gray-900 hover:text-[#004040] transition-colors duration-200 text-sm"
-                  >
-                    LinkedIn
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="https://t.me/+BCqhsA4Nmv0wZDU5"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-gray-900 hover:text-[#004040] transition-colors duration-200 text-sm"
-                  >
-                    Telegram
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="https://x.com/0xspout"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-gray-900 hover:text-[#004040] transition-colors duration-200 text-sm"
-                  >
-                    X
-                  </a>
-                </li>
-              </ul>
+              {/* Social Column */}
+              <div>
+                <h4 className="text-spout-footer-heading font-['DM_Sans'] text-[14px] font-medium leading-[22.4px] tracking-[-0.24px] mb-4 uppercase">
+                  SOCIAL
+                </h4>
+                <ul className="flex flex-col gap-3">
+                  <li>
+                    <a
+                      href="https://www.linkedin.com/company/spoutfinance/posts/?feedView=all"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-black font-['DM_Sans'] text-[14px] font-normal leading-[22.4px] tracking-[-0.24px] hover:text-spout-deep-teal transition-colors duration-200"
+                    >
+                      LinkedIn
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="https://x.com/0xspout"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-black font-['DM_Sans'] text-[14px] font-normal leading-[22.4px] tracking-[-0.24px] hover:text-spout-deep-teal transition-colors duration-200"
+                    >
+                      X
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="https://t.me/+BCqhsA4Nmv0wZDU5"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-black font-['DM_Sans'] text-[14px] font-normal leading-[22.4px] tracking-[-0.24px] hover:text-spout-deep-teal transition-colors duration-200"
+                    >
+                      Telegram
+                    </a>
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
@@ -191,7 +197,7 @@ export const Footer: React.FC<FooterProps> = ({
         {/* Desktop Layout - Original layout */}
         <div className="hidden lg:flex lg:flex-row lg:justify-between lg:w-full lg:gap-12 max-w-[1305px] mx-auto">
           {/* Left side - Logo and copyright */}
-          <div className="space-y-5 pt-[52px] pb-[104px] border-r-2  border-[#F3F4F6] pr-[55px]">
+          <div className="space-y-5 pt-[52px] pb-[104px] border-r-2  border-gray-100 pr-[55px]">
             <div className="flex items-center mb-4">
               <Image
                 src="/Spout_complete.png"
@@ -208,7 +214,7 @@ export const Footer: React.FC<FooterProps> = ({
           <div className="grid grid-cols-3 gap-16 py-12 font-noto-sans mr-16">
             {/* Platform Column */}
             <div>
-              <h4 className="text-[#8C9BAA] font-['DM_Sans'] text-sm font-medium leading-[22.4px] tracking-[-0.24px] mb-4 uppercase">
+              <h4 className="text-spout-footer-heading font-['DM_Sans'] text-sm font-medium leading-[22.4px] tracking-[-0.24px] mb-4 uppercase">
                 PLATFORM
               </h4>
               <ul className="space-y-3">
@@ -216,7 +222,7 @@ export const Footer: React.FC<FooterProps> = ({
                   <li key={index}>
                     <Link
                       href={link.href}
-                      className="text-black font-['DM_Sans'] text-sm font-normal leading-[22.4px] tracking-[-0.24px] hover:text-[#004040] transition-colors duration-200 "
+                      className="text-black font-['DM_Sans'] text-sm font-normal leading-[22.4px] tracking-[-0.24px] hover:text-spout-deep-teal transition-colors duration-200 "
                     >
                       {link.label}
                     </Link>
@@ -227,7 +233,7 @@ export const Footer: React.FC<FooterProps> = ({
 
             {/* Company Column */}
             <div>
-              <h4 className="text-[#8C9BAA] font-['DM_Sans'] text-sm font-medium leading-[22.4px] tracking-[-0.24px] mb-4 uppercase">
+              <h4 className="text-spout-footer-heading font-['DM_Sans'] text-sm font-medium leading-[22.4px] tracking-[-0.24px] mb-4 uppercase">
                 COMPANY
               </h4>
               <ul className="space-y-3">
@@ -235,7 +241,7 @@ export const Footer: React.FC<FooterProps> = ({
                   <li key={index}>
                     <Link
                       href={link.href}
-                      className="text-black font-['DM_Sans'] text-sm font-normal leading-[22.4px] tracking-[-0.24px] hover:text-[#004040] transition-colors duration-200"
+                      className="text-black font-['DM_Sans'] text-sm font-normal leading-[22.4px] tracking-[-0.24px] hover:text-spout-deep-teal transition-colors duration-200"
                     >
                       {link.label}
                     </Link>
@@ -246,7 +252,7 @@ export const Footer: React.FC<FooterProps> = ({
 
             {/* Social Column */}
             <div>
-              <h4 className="text-[#8C9BAA] font-['DM_Sans'] text-sm font-medium leading-[22.4px] tracking-[-0.24px] mb-4 uppercase">
+              <h4 className="text-spout-footer-heading font-['DM_Sans'] text-sm font-medium leading-[22.4px] tracking-[-0.24px] mb-4 uppercase">
                 SOCIAL
               </h4>
               <ul className="space-y-3">
@@ -255,7 +261,7 @@ export const Footer: React.FC<FooterProps> = ({
                     href="https://www.linkedin.com/company/spoutfinance/posts/?feedView=all"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-black font-['DM_Sans'] text-sm font-normal leading-[22.4px] tracking-[-0.24px] hover:text-[#004040] transition-colors duration-200"
+                    className="text-black font-['DM_Sans'] text-sm font-normal leading-[22.4px] tracking-[-0.24px] hover:text-spout-deep-teal transition-colors duration-200"
                   >
                     LinkedIn
                   </a>
@@ -265,7 +271,7 @@ export const Footer: React.FC<FooterProps> = ({
                     href="https://x.com/0xspout"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-black font-['DM_Sans'] text-sm font-normal leading-[22.4px] tracking-[-0.24px] hover:text-[#004040] transition-colors duration-200"
+                    className="text-black font-['DM_Sans'] text-sm font-normal leading-[22.4px] tracking-[-0.24px] hover:text-spout-deep-teal transition-colors duration-200"
                   >
                     X
                   </a>
@@ -275,7 +281,7 @@ export const Footer: React.FC<FooterProps> = ({
                     href="https://t.me/+BCqhsA4Nmv0wZDU5"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-black font-['DM_Sans'] text-sm font-normal leading-[22.4px] tracking-[-0.24px] hover:text-[#004040] transition-colors duration-200"
+                    className="text-black font-['DM_Sans'] text-sm font-normal leading-[22.4px] tracking-[-0.24px] hover:text-spout-deep-teal transition-colors duration-200"
                   >
                     Telegram
                   </a>
@@ -286,13 +292,14 @@ export const Footer: React.FC<FooterProps> = ({
         </div>
       </div>
 
-      {/* Disclaimer Section - Hidden on mobile */}
-      <div className="hidden md:block  relative z-10 w-full max-w-[1305px] mx-auto h-[85px]">
-        <div className="flex flex-col gap-2 py-10 ml-[-4px] max-w-[755px] font-dm-sans ">
-          <h5 className="text-[#525252] font-['DM_Sans'] text-[18px] not-italic font-medium leading-[28px] tracking-[-0.072px]">
+      {/* Disclaimer Section */}
+      <div className="relative z-10 w-full sm:max-w-326.25 mx-auto md:h-[85px]">
+        <div className="h-px w-screen left-1/2 -translate-x-1/2 bg-transparent border-t-2 border-gray-100 absolute block sm:hidden"></div>
+        <div className="flex flex-col gap-2 px-10 py-8 md:py-10 md:px-0 md:ml-[-4px] max-w-[755px] font-dm-sans sm:border-t sm:border-gray-100 md:border-0">
+          <h5 className="text-spout-text-muted-dark font-['DM_Sans'] text-[16px] md:text-[18px] not-italic font-medium leading-[28px] tracking-[-0.064px] md:tracking-[-0.072px]">
             Disclaimer
           </h5>
-          <p className="text-[#525252] font-['DM_Sans'] text-[14px] not-italic font-normal leading-[24px] tracking-[-0.056px]">
+          <p className="text-spout-text-muted-dark font-['DM_Sans'] text-[14px] not-italic font-normal leading-[24px] tracking-[-0.056px]">
             All provided information has been carefully researched and checked.
             In spite of taking due care, Spout Finance does not accept any
             warranty for the information being correct, complete, and up to

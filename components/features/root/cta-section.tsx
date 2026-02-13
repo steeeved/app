@@ -72,16 +72,18 @@ export function CTASection() {
   };
 
   return (
-    <section className="w-[1176px] mx-auto mt-[-20px]">
-      <div className=" w-screen bg-transparent border-b-2 border-[#F3F4F6] "></div>
+    <section className="w-full sm:w-[1176px] mx-auto mt-[-20px]">
+      <div className="relative w-full bg-transparent sm:border-b-2 border-gray-100">
+        <div className="sm:hidden absolute top-0 left-1/2 -translate-x-1/2 w-[100vw] h-[2px] bg-gray-100" />
+      </div>
       <div className="flex">
         {/* Left Content */}
         <div className="flex-1 w-full flex items-center justify-center">
-          <div className="flex flex-col gap-5 p-9 w-[635px]">
-            <h2 className="text-[#004040] font-['DM_Sans'] text-[24px] not-italic font-medium leading-[28px] tracking-[-0.096px]">
+          <div className="flex flex-col gap-5 sm:pl-[42px] py-11 sm:p-9 sm:w-[635px]">
+            <h2 className="text-spout-deep-teal font-['DM_Sans'] text-[24px] not-italic font-medium leading-[28px] tracking-[-0.096px]">
               Ready to Start Earning Stable Yields?
             </h2>
-            <p className="text-[#525252] font-['DM_Sans'] text-[16px] not-italic font-normal leading-[28px] tracking-[-0.064px]">
+            <p className="text-spout-text-muted-dark font-['DM_Sans'] text-[16px] not-italic font-normal leading-[28px] tracking-[-0.064px]">
               Join thousands of users who are already earning consistent returns
               from investment-grade corporate bonds on the blockchain.
             </p>
@@ -94,7 +96,7 @@ export function CTASection() {
                   onChange={handleEmailChange}
                   onBlur={handleEmailBlur}
                   placeholder="Enter your email to join our mailing list"
-                  className={`flex h-[44px] pt-[14px] pr-[88px] pb-[14px] pl-[20px] items-center w-[395px] border text-[14px] border-gray-300 rounded-sm py-3 px-5 outline-none text-[#6E6E6E] font-dm-sans text-sm not-italic font-normal leading-4 focus-visible:border-primary focus-visible:border-2 ${
+                  className={`min-w-55.5 w-full h-9 flex sm:h-[44px] pt-[14px] sm:pr-[88px] pb-[14px] sm:pl-[20px] items-center sm:w-[395px] border text-[14px] border-gray-300 rounded-sm py-3 px-5 outline-none text-spout-text-description font-dm-sans text-sm not-italic font-normal leading-4 focus-visible:border-primary focus-visible:border-2 ${
                     error
                       ? "border-2 border-red-300 focus-visible:ring-red-400"
                       : ""
@@ -103,7 +105,7 @@ export function CTASection() {
                 />
 
                 {!joined ? (
-                  <button className="text-[#FFF] font-['DM_Sans'] text-[20px] not-italic font-medium leading-normal flex w-[92px] h-[44px] pt-[10px] pr-[12px] pb-[10px] pl-[16px] justify-center items-center gap-[10px] rounded-[6px] border-[1px] border-solid border-[#A7C6ED] bg-[#004040]">
+                  <button className="h-9 text-[#FFF] font-['DM_Sans'] text-base sm:text-[20px] not-italic font-medium leading-normal flex sm:w-[92px] sm:h-[44px] pt-[10px] pr-[12px] pb-[10px] pl-[16px] justify-center items-center gap-[10px] rounded-[6px] border-[1px] border-solid border-dashboard-accent-blue-light bg-spout-deep-teal">
                     Join
                   </button>
                 ) : null}
@@ -126,7 +128,7 @@ export function CTASection() {
         </div>
 
         {/* Right Image */}
-        <div className="flex-1 w-full mt-4 sm:mt-0 flex mr-1">
+        <div className="hidden flex-1 w-full mt-4 sm:mt-0 sm:flex mr-1">
           <div className="bg-linear-gradient-blue-2 w-[18px] h-auto "></div>
 
           <div className="w-[522px] h-[330px]">

@@ -101,127 +101,90 @@ const rowDividerColors = [
   ],
 ];
 
+// Flat list of divider colors for mobile single-column layout
+const allDividerColors = [...rowDividerColors[0], ...rowDividerColors[1]];
+
+/* Heights for the mobile V-shaped chevron decoration (symmetric) */
+const chevronHeights = [217, 181, 163, 145, 127, 99, 127, 145, 163, 181, 217];
+
 export default function AboutPage() {
   return (
     <div className="min-h-screen bg-white relative overflow-x-clip">
       <div className="relative">
         <main className="relative flex flex-col gap-12 sm:gap-16 lg:gap-25 z-10">
           {/* Hero Section */}
-          <section className="relative w-full bg-white px-4 sm:px-6 lg:px-0">
+          <section className="relative w-full bg-white min-h-[525px] sm:min-h-0 px-6 sm:px-6 lg:px-0">
             <div className="hidden lg:block absolute -bottom-0.5 left-1/2 -translate-x-1/2 w-screen border-t-2 border-gray-100 pointer-events-none" />
 
-            {/* Left gradient chevrons — absolutely positioned, vw-based widths */}
+            {/* Left gradient chevrons — desktop only */}
             <div className="hidden lg:flex flex-col absolute left-0 top-0 bottom-0 pointer-events-none">
-              <div
-                className="flex-1 bg-gradient-to-r from-blue-600 to-lime-200"
-                style={{ width: "22vw" }}
-              />
-              <div
-                className="flex-1 bg-gradient-to-r from-blue-600 to-lime-200"
-                style={{ width: "20vw" }}
-              />
-              <div
-                className="flex-1 bg-gradient-to-r from-blue-600 to-lime-200"
-                style={{ width: "18vw" }}
-              />
-              <div
-                className="flex-1 bg-gradient-to-r from-blue-600 to-lime-200"
-                style={{ width: "16vw" }}
-              />
-              <div
-                className="flex-1 bg-gradient-to-r from-blue-600 to-lime-200"
-                style={{ width: "14vw" }}
-              />
-              <div
-                className="flex-1 bg-gradient-to-r from-blue-600 to-lime-200"
-                style={{ width: "16vw" }}
-              />
-              <div
-                className="flex-1 bg-gradient-to-r from-blue-600 to-lime-200"
-                style={{ width: "18vw" }}
-              />
-              <div
-                className="flex-1 bg-gradient-to-r from-blue-600 to-lime-200"
-                style={{ width: "20vw" }}
-              />
-              <div
-                className="flex-1 bg-gradient-to-r from-blue-600 to-lime-200"
-                style={{ width: "22vw" }}
-              />
+              {[22, 20, 18, 16, 14, 16, 18, 20, 22].map((w, i) => (
+                <div
+                  key={i}
+                  className="flex-1 bg-gradient-to-r from-blue-600 to-lime-200"
+                  style={{ width: `${w}vw` }}
+                />
+              ))}
             </div>
 
-            {/* Right gradient chevrons — absolutely positioned, vw-based widths */}
+            {/* Right gradient chevrons — desktop only */}
             <div className="hidden lg:flex flex-col items-end absolute right-0 top-0 bottom-0 pointer-events-none">
-              <div
-                className="flex-1 bg-gradient-to-l from-blue-600 to-lime-200"
-                style={{ width: "22vw" }}
-              />
-              <div
-                className="flex-1 bg-gradient-to-l from-blue-600 to-lime-200"
-                style={{ width: "20vw" }}
-              />
-              <div
-                className="flex-1 bg-gradient-to-l from-blue-600 to-lime-200"
-                style={{ width: "18vw" }}
-              />
-              <div
-                className="flex-1 bg-gradient-to-l from-blue-600 to-lime-200"
-                style={{ width: "16vw" }}
-              />
-              <div
-                className="flex-1 bg-gradient-to-l from-blue-600 to-lime-200"
-                style={{ width: "14vw" }}
-              />
-              <div
-                className="flex-1 bg-gradient-to-l from-blue-600 to-lime-200"
-                style={{ width: "16vw" }}
-              />
-              <div
-                className="flex-1 bg-gradient-to-l from-blue-600 to-lime-200"
-                style={{ width: "18vw" }}
-              />
-              <div
-                className="flex-1 bg-gradient-to-l from-blue-600 to-lime-200"
-                style={{ width: "20vw" }}
-              />
-              <div
-                className="flex-1 bg-gradient-to-l from-blue-600 to-lime-200"
-                style={{ width: "22vw" }}
-              />
+              {[22, 20, 18, 16, 14, 16, 18, 20, 22].map((w, i) => (
+                <div
+                  key={i}
+                  className="flex-1 bg-gradient-to-l from-blue-600 to-lime-200"
+                  style={{ width: `${w}vw` }}
+                />
+              ))}
             </div>
 
-            {/* Horizontal gradient accent - visible only on small/medium screens */}
-            <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-600 via-lime-200 to-blue-600 lg:hidden" />
-            <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-600 via-lime-200 to-blue-600 lg:hidden" />
+            {/* Mobile V-shaped gradient chevrons at bottom */}
+            <div className="lg:hidden absolute bottom-0 left-0 right-0 flex items-end overflow-hidden pointer-events-none">
+              {chevronHeights.map((h, i) => (
+                <div
+                  key={i}
+                  className="flex-1"
+                  style={{
+                    height: `${h}px`,
+                    background:
+                      "linear-gradient(to top, rgba(221,255,135,0.76), rgba(0,87,255,0.76))",
+                  }}
+                />
+              ))}
+            </div>
 
-            <div className="relative z-10 mx-auto text-center flex flex-col justify-center items-center py-16 sm:py-20 lg:py-24">
-              <div className="w-fit self-center items-center justify-center px-2.5 py-1 rounded-[3px] bg-spout-accent/35 mb-4">
-                <span className="text-sm sm:text-base font-medium text-slate-600 font-dm-sans">
-                  About Us
+            {/* Content — left-aligned on mobile, centered on desktop */}
+            <div className="relative z-10 mx-auto text-left sm:text-center flex flex-col justify-center items-start sm:items-center py-16 sm:py-20 lg:py-24">
+              <div className="w-fit px-2.5 py-1 rounded-[3px] bg-spout-accent/35 mb-5">
+                <span className="text-base font-medium text-slate-600 font-dm-sans">
+                  About us
                 </span>
               </div>
 
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[52px] font-normal text-spout-primary font-pt-serif leading-tight mb-3">
+              <h1 className="text-[36px] sm:text-4xl md:text-5xl lg:text-[52px] font-normal text-spout-primary font-pt-serif leading-[50px] sm:leading-tight mb-4">
                 Our Story
               </h1>
 
-              <p className="text-base sm:text-lg text-spout-text-muted max-w-[600px] mx-auto font-dm-sans leading-7 px-2 sm:px-0">
+              <p className="text-base text-spout-text-description max-w-[330px] sm:max-w-[600px] sm:mx-auto font-dm-sans leading-6 sm:leading-7 tracking-[0.064px]">
                 We are building next-generation investment infrastructure that
-                prioritizes security, transparency, and returns.
+                prioritizes security, transparency, and returns
               </p>
             </div>
           </section>
 
-          {/* Bordered container: vertical lines via border-x on centered container,
-              horizontal lines via absolutely-positioned full-width divs */}
-          <div className="max-w-[1176px] mx-auto px-4 sm:px-6 lg:px-0 lg:border-x-2 lg:border-gray-100">
+          {/* Bordered container */}
+          <div className="relative max-w-[calc(100vw-48px)] sm:max-w-[1176px] mx-auto sm:px-6 lg:px-0 lg:border-x-2 lg:border-gray-100">
+            {/* Mobile vertical border lines */}
+            <div className="absolute left-0 top-0 bottom-0 w-[2px] bg-gray-100 block sm:hidden z-100" />
+            <div className="absolute right-0 top-0 bottom-0 w-[2px] bg-gray-100 block sm:hidden z-100" />
+
             {/* ── Manifesto Section ── */}
             <div className="relative">
               {/* Full-width horizontal lines */}
               <div className="hidden lg:block absolute top-0 left-1/2 -translate-x-1/2 w-screen border-t-2 border-gray-100 pointer-events-none" />
               <div className="hidden lg:block absolute -bottom-0.5 left-1/2 -translate-x-1/2 w-screen border-t-2 border-gray-100 pointer-events-none" />
               {/* Blue Banner */}
-              <div className="bg-[#0168ff] py-3.5 sm:py-4 text-center">
+              <div className="bg-spout-blue-accent py-3.5 sm:py-4 text-center">
                 <span className="font-mono text-white text-base sm:text-xl tracking-tight leading-7">
                   MANIFESTO
                 </span>
@@ -230,24 +193,24 @@ export default function AboutPage() {
               {/* Manifesto Content */}
               <div className="bg-white overflow-hidden flex flex-col lg:flex-row">
                 {/* Left Column - Text */}
-                <div className="flex-1 px-5 sm:px-8 py-8 sm:py-10 space-y-10">
+                <div className="flex-1 px-4 sm:px-8 py-8 sm:py-10 space-y-8 sm:space-y-10">
                   {/* Block 1 */}
                   <div>
-                    <div className="flex items-center gap-3 mb-4">
-                      <div className="p-1.5 bg-spout-primary rounded-[3px]">
+                    <div className="flex items-center gap-2 mb-4">
+                      <div className="p-1 sm:p-1.5 bg-spout-primary rounded-[3px]">
                         <Image
                           src={"/svg-assets/landingpage/fingerprint.png"}
-                          className="w-4 h-4 text-white"
+                          className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-white"
                           width={16}
                           height={16}
                           alt="Fingerprint"
                         />
                       </div>
-                      <h3 className="text-xl sm:text-2xl lg:text-[28px] font-medium text-spout-primary leading-7 font-dm-sans">
+                      <h3 className="text-base sm:text-2xl lg:text-[28px] font-medium text-spout-primary leading-5 sm:leading-7 font-dm-sans">
                         Access is a right, not a privilege
                       </h3>
                     </div>
-                    <p className="text-base sm:text-lg text-spout-text-muted leading-7 font-dm-sans">
+                    <p className="text-[14px] sm:text-lg text-spout-text-muted-dark leading-6 sm:leading-7 font-dm-sans">
                       The global financial system is rigged: institutions borrow
                       for free, while everyone else pays the price. We refuse to
                       accept that status quo. Spout is building the first truly
@@ -260,21 +223,21 @@ export default function AboutPage() {
 
                   {/* Block 2 */}
                   <div>
-                    <div className="flex items-center gap-3 mb-4">
-                      <div className="p-1.5 bg-spout-primary rounded-[3px]">
+                    <div className="flex items-center gap-2 mb-4">
+                      <div className="p-1 sm:p-1.5 bg-spout-primary rounded-[3px]">
                         <Image
                           src={"/svg-assets/landingpage/users.png"}
-                          className="w-4 h-4 text-white"
+                          className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-white"
                           width={16}
                           height={16}
-                          alt="Fingerprint"
+                          alt="People"
                         />
                       </div>
-                      <h3 className="text-xl sm:text-2xl lg:text-[28px] font-medium text-spout-primary leading-7 font-dm-sans">
+                      <h3 className="text-base sm:text-2xl lg:text-[28px] font-medium text-spout-primary leading-5 sm:leading-7 font-dm-sans">
                         Built by defectors
                       </h3>
                     </div>
-                    <p className="text-base sm:text-lg text-spout-text-muted leading-7 font-dm-sans">
+                    <p className="text-[14px] sm:text-lg text-spout-text-muted-dark leading-6 sm:leading-7 font-dm-sans">
                       We are ex-bankers and engineers who saw the unfair
                       advantages from the inside — and left to share them with
                       you. We bridge the gap between institutional structure and
@@ -286,10 +249,8 @@ export default function AboutPage() {
                 </div>
 
                 {/* Right Column - Decorative Image */}
-                <div className="relative w-full lg:w-105.25 h-75 sm:h-87.5 lg:h-auto overflow-hidden border-t lg:border-t-0 lg:border-l-[6px] border-gray-100 shrink-0">
-                  {/* Decorative gradient chevrons */}
-
-                  <div className="relative w-full h-full ">
+                <div className="relative w-full lg:w-105.25 h-[214px] sm:h-87.5 lg:h-auto overflow-hidden border-t-[5px] border-gray-100 lg:border-t-0 lg:border-l-[6px] shrink-0">
+                  <div className="relative w-full h-full">
                     <Image
                       src="/svg-assets/landingpage/globe-bg.png"
                       alt=""
@@ -319,38 +280,58 @@ export default function AboutPage() {
             {/* ── Meet the Team Section ── */}
             <div className="relative pt-8 sm:pt-12 lg:pt-15 mb-12 sm:mb-16 lg:mb-25">
               {/* Full-width horizontal line at top of team section */}
-              <div className="hidden lg:block absolute top-0 left-1/2 -translate-x-1/2 w-screen border-t-2 border-gray-100 pointer-events-none z-10" />
+              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-screen border-t-2 border-gray-100 pointer-events-none z-10" />
 
-              <h2 className="text-3xl sm:text-4xl lg:text-[56px] font-pt-serif text-spout-primary text-center mb-8 sm:mb-12 lg:mb-15">
+              <h2 className="text-[30px] sm:text-4xl lg:text-[56px] font-pt-serif text-spout-primary text-center leading-10 sm:leading-tight mb-8 sm:mb-12 lg:mb-15">
                 Meet the Team
               </h2>
 
-              {/* Row 1 — top + bottom full-width lines */}
-              <div className="relative mb-6 sm:mb-8 lg:mb-15 font-dm-sans">
-                <div className="hidden lg:block absolute top-0 left-1/2 -translate-x-1/2 w-screen border-t-2 border-gray-100 pointer-events-none z-10" />
-                <div className="hidden lg:block absolute bottom-0 left-1/2 -translate-x-1/2 w-screen border-t-2 border-gray-100 pointer-events-none z-10" />
-                <TeamRow
-                  members={teamMembers.slice(0, 3)}
-                  dividerColors={rowDividerColors[0]}
-                />
+              {/* Mobile: all cards stacked with gradient dividers */}
+              <div className="sm:hidden font-dm-sans relative">
+                {teamMembers.map((member, i) => (
+                  <div key={member.name}>
+                    <TeamCard {...member} />
+                    <div
+                      className="h-[22px] w-full"
+                      style={{
+                        background: `linear-gradient(to right, ${allDividerColors[i].from}, ${allDividerColors[i].to})`,
+                      }}
+                    />
+                  </div>
+                ))}
+                {/* Full-width line below last card */}
+                <div className="h-[2px] bg-gray-100 -mx-[24px] w-[calc(100%+48px)]" />
               </div>
 
-              {/* Row 2 — top + bottom full-width lines */}
-              <div className="relative font-dm-sans">
-                <div className="hidden lg:block absolute top-0 left-1/2 -translate-x-1/2 w-screen border-t-2 border-gray-100 pointer-events-none z-10" />
-                <div className="hidden lg:block absolute bottom-0 left-1/2 -translate-x-1/2 w-screen border-t-2 border-gray-100 pointer-events-none z-10" />
-                <TeamRow
-                  members={teamMembers.slice(3, 6)}
-                  dividerColors={rowDividerColors[1]}
-                />
+              {/* Tablet + Desktop rows */}
+              <div className="hidden sm:block">
+                {/* Row 1 — top + bottom full-width lines */}
+                <div className="relative mb-6 sm:mb-8 lg:mb-15 font-dm-sans">
+                  <div className="hidden lg:block absolute top-0 left-1/2 -translate-x-1/2 w-screen border-t-2 border-gray-100 pointer-events-none z-10" />
+                  <div className="hidden lg:block absolute bottom-0 left-1/2 -translate-x-1/2 w-screen border-t-2 border-gray-100 pointer-events-none z-10" />
+                  <TeamRow
+                    members={teamMembers.slice(0, 3)}
+                    dividerColors={rowDividerColors[0]}
+                  />
+                </div>
+
+                {/* Row 2 — top + bottom full-width lines */}
+                <div className="relative font-dm-sans">
+                  <div className="hidden lg:block absolute top-0 left-1/2 -translate-x-1/2 w-screen border-t-2 border-gray-100 pointer-events-none z-10" />
+                  <div className="hidden lg:block absolute bottom-0 left-1/2 -translate-x-1/2 w-screen border-t-2 border-gray-100 pointer-events-none z-10" />
+                  <TeamRow
+                    members={teamMembers.slice(3, 6)}
+                    dividerColors={rowDividerColors[1]}
+                  />
+                </div>
               </div>
             </div>
 
             {/* ── Newsletter CTA Section — top + bottom full-width lines ── */}
             <div className="relative">
-              <div className="hidden lg:block absolute top-0 left-1/2 -translate-x-1/2 w-screen border-t-2 border-gray-100 pointer-events-none" />
-              <div className="hidden lg:block absolute bottom-0 left-1/2 -translate-x-1/2 w-screen border-t-2 border-gray-100 pointer-events-none" />
-              <div className="overflow-hidden">
+              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-screen border-t-2 border-gray-100 pointer-events-none" />
+              <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-screen border-t-2 border-gray-100 pointer-events-none" />
+              <div className="overflow-hidden max-w-[calc(100vw-72px)] mx-auto sm:max-w-full w-full">
                 <CTASection />
               </div>
             </div>
@@ -361,12 +342,12 @@ export default function AboutPage() {
         </main>
       </div>
       {/* Bottom horizontal line above footer */}
-      <div className="w-full border-t-2 border-[#F3F4F6]" />
+      <div className="w-full border-t-2 border-gray-100" />
     </div>
   );
 }
 
-/* ─── Team Row ─── */
+/* ─── Team Row (tablet + desktop only) ─── */
 function TeamRow({
   members,
   dividerColors,
@@ -394,14 +375,7 @@ function TeamRow({
       </div>
 
       {/* Tablet: 2-column grid */}
-      <div className="hidden sm:grid lg:hidden grid-cols-2 gap-4 sm:gap-6">
-        {members.map((member) => (
-          <TeamCard key={member.name} {...member} />
-        ))}
-      </div>
-
-      {/* Mobile: single column */}
-      <div className="grid sm:hidden grid-cols-1 gap-6">
+      <div className="grid lg:hidden grid-cols-2 gap-4 sm:gap-6 relative">
         {members.map((member) => (
           <TeamCard key={member.name} {...member} />
         ))}
@@ -429,9 +403,10 @@ function TeamCard({
   };
 }) {
   return (
-    <div className="w-full lg:w-92.5 bg-white flex flex-col overflow-hidden">
+    <div className="w-full lg:w-92.5 bg-white flex flex-col sm:overflow-hidden relative">
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-screen border-t-2 border-gray-100 pointer-events-none z-10 sm:hidden" />
       {/* Image Section */}
-      <div className="relative w-full h-48 sm:h-56">
+      <div className="relative w-full h-[214px] sm:h-56 border-b border-neutral-200">
         <Image
           src={image}
           alt={name}
@@ -445,26 +420,26 @@ function TeamCard({
       </div>
 
       {/* Content Section */}
-      <div className="p-5 flex-1 flex flex-col">
+      <div className="p-4 sm:p-5 flex-1 flex flex-col">
         {/* Title Badge */}
         <div className="inline-flex items-center px-2.5 py-1 border border-spout-accent bg-spout-accent/35 rounded-[3px] mb-4 w-fit">
-          <span className="text-sm sm:text-base font-medium text-slate-600 font-dm-sans">
+          <span className="text-[14px] sm:text-base font-medium text-slate-600 font-dm-sans">
             {title}
           </span>
         </div>
 
         {/* Name */}
-        <h3 className="text-xl sm:text-2xl font-semibold text-spout-primary mb-2 font-dm-sans">
+        <h3 className="text-xl sm:text-2xl font-semibold text-spout-primary mb-1.5 font-dm-sans">
           {name}
         </h3>
 
         {/* Description */}
-        <p className="text-sm sm:text-base text-spout-text-muted leading-7 mb-6 flex-1 font-dm-sans">
+        <p className="text-[14px] sm:text-base text-spout-text-muted-dark leading-7 mb-6 flex-1 font-dm-sans">
           {description}
         </p>
 
         {/* Social Icons */}
-        <div className="flex items-center gap-5 mt-auto">
+        <div className="flex items-center gap-4 mt-auto">
           {links?.email && (
             <a
               href={links.email}
@@ -492,8 +467,8 @@ function TeamCard({
                 src={"/svg-assets/landingpage/x.png"}
                 width={24}
                 height={24}
-                alt="Mail"
-                className="w-6"
+                alt="X"
+                className="w-5"
               />
             </a>
           )}
@@ -509,8 +484,8 @@ function TeamCard({
                 src={"/svg-assets/landingpage/linkedin.png"}
                 width={24}
                 height={24}
-                alt="Mail"
-                className="w-6"
+                alt="LinkedIn"
+                className="w-5"
               />
             </a>
           )}

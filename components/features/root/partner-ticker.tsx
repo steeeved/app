@@ -132,31 +132,34 @@ export function PartnerTicker() {
   }, [isPaused]);
 
   return (
-    <div className="w-full overflow-hidden h-[96px] flex items-center">
-      <div className="flex flex-col sm:flex-row items-center">
-        <div className="pr-12 flex-shrink-0">
-          <h3 className="text-black font-dm-sans text-[18px] not-italic font-medium leading-6 tracking-[0.072px]">
+    <div className="w-full overflow-hidden border-gray-100 py-5 sm:py-6">
+      <div className="flex flex-col items-center gap-4 sm:flex-row sm:gap-0">
+        <div className="sm:pr-12 flex-shrink-0">
+          <h3 className="text-spout-deep-teal font-dm-sans text-[16px] font-medium leading-6 tracking-[0.064px]">
             WORKING WITH
           </h3>
         </div>
 
-        <div className="flex-1 overflow-hidden">
+        <div className="relative w-full sm:flex-1 overflow-hidden">
+          <div className="absolute left-0 top-0 bottom-0 w-6 bg-white z-10 sm:hidden" />
+          <div className="absolute right-0 top-0 bottom-0 w-6 bg-white z-10 sm:hidden" />
+
           <div
             ref={tickerRef}
             className="flex items-center will-change-transform"
           >
             <div
               ref={contentRef}
-              className="flex shrink-0 justify-center items-center"
+              className="flex shrink-0 items-center gap-[34px]"
             >
               {[...partners, ...partners, ...partners].map((p, i) => (
                 <Link key={i} href={p.link} target="_blank">
-                  <div className="px-8 py-5 min-w-[160px] m-h-[30px] flex justify-center">
+                  <div className="min-w-[80px] h-[28px] flex justify-center items-center">
                     <Image
                       src={p.src}
                       alt={p.alt}
                       width={100}
-                      height={30}
+                      height={28}
                       draggable={false}
                       className="object-contain"
                     />
